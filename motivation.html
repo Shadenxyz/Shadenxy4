@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShadenX Daily Motivation</title>
+<link rel="stylesheet" href="style.css">
+<style>
+    body {
+        overflow: hidden;
+    }
+    .daily-quote {
+        font-size: 1.8rem;
+        color: #00fff7;
+        margin-top: 30px;
+        text-shadow: 0 0 15px #00fff7;
+        padding: 15px;
+        font-weight: bold;
+    }
+    .typing {
+        font-size: 1.3rem;
+        color: #ff00ff;
+        margin: 20px 0;
+        height: 40px;
+        text-shadow: 0 0 10px #ff00ff;
+    }
+    /* Particle Background Canvas */
+    #particles-js {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        z-index: -1;
+        background: #000;
+    }
+    .aura {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        margin: 30px auto;
+        background: radial-gradient(circle, rgba(255,0,255,0.6), rgba(0,255,255,0.1));
+        animation: auraPulse 3s infinite alternate;
+    }
+    @keyframes auraPulse {
+        0% { transform: scale(1); box-shadow: 0 0 20px #ff00ff; }
+        100% { transform: scale(1.3); box-shadow: 0 0 50px #00fff7; }
+    }
+    button {
+        background: #00fff7;
+        padding: 15px 30px;
+        border-radius: 25px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+        margin-top: 20px;
+        color: #000;
+        box-shadow: 0 0 20px #00fff7;
+        transition: 0.3s;
+    }
+    button:hover {
+        background: #ff00ff;
+        color: #fff;
+        box-shadow: 0 0 40px #ff00ff;
+    }
+</style>
+</head>
+<body>
+<div id="particles-js"></div>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="plan.html">7-Day Plan</a>
+    <a href="motivation.html">Motivation</a>
+</nav>
+
+<h1>🔥 Ultra Instinct ShadenX Daily Power 🔥</h1>
+<div class="aura"></div>
+<div class="daily-quote" id="dailyQuote"></div>
+<hr style="margin:30px 0; border:1px solid #ff00ff;">
+<h2>Rotating Motivation</h2>
+<div class="typing" id="typing"></div>
+
+<audio id="powerSound" src="https://www.myinstants.com/media/sounds/ultra-instinct.mp3"></audio>
+<button onclick="playSound()">Activate Beast Mode</button>
+
+<script>
+// ---- 50 Daily Quotes ----
+const dailyQuotes = [
+"Day 1: Be the Beast. Be the King. Be Shaden XYZ!",
+"Day 2: No Limits. No Excuses. Just Power!",
+"Day 3: Pain is your fuel.",
+"Day 4: Sweat today, shine tomorrow.",
+"Day 5: Wake up strong. Sleep like a warrior.",
+"Day 6: Kings train in silence.",
+"Day 7: One more rep, one more step.",
+"Day 8: Energy flows where focus goes.",
+"Day 9: Control your mind, conquer your body.",
+"Day 10: Comfort zones kill greatness.",
+"Day 11: Grind now, glow later.",
+"Day 12: Legends rise when others quit.",
+"Day 13: Discipline beats motivation.",
+"Day 14: Weakness is a choice.",
+"Day 15: Break limits every day.",
+"Day 16: Fear is a liar.",
+"Day 17: Power comes from pain.",
+"Day 18: Your only rival is you.",
+"Day 19: Hard work builds kings.",
+"Day 20: Small steps, big results.",
+"Day 21: No excuses, only results.",
+"Day 22: Warriors never rest.",
+"Day 23: Destroy your limits.",
+"Day 24: Become unstoppable.",
+"Day 25: Pain = Progress.",
+"Day 26: Sacrifice builds strength.",
+"Day 27: Earn your aura.",
+"Day 28: Ultra Instinct mode ON.",
+"Day 29: Sweat > Regret.",
+"Day 30: Every rep counts.",
+"Day 31: Dominate or be dominated.",
+"Day 32: No beast skips basics.",
+"Day 33: Success demands sacrifice.",
+"Day 34: Power up every day.",
+"Day 35: Turn fatigue into fuel.",
+"Day 36: Your grind, your glory.",
+"Day 37: Rise like a warrior.",
+"Day 38: Don't fear pain, embrace it.",
+"Day 39: Weak excuses = weak results.",
+"Day 40: Pain is temporary, pride is forever.",
+"Day 41: Beast mode never sleeps.",
+"Day 42: Mindset is your weapon.",
+"Day 43: The harder the fight, the greater the glory.",
+"Day 44: Progress requires pressure.",
+"Day 45: Sweat like a warrior.",
+"Day 46: Build strength, break fear.",
+"Day 47: Push through the limits.",
+"Day 48: Hunger creates heroes.",
+"Day 49: Commit or quit.",
+"Day 50: Be legendary."
+];
+
+// Calculate index based on day count
+const startDate = new Date("2025-7-16");
+const today = new Date();
+const dayNumber = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
+const quoteIndex = dayNumber % dailyQuotes.length;
+document.getElementById("dailyQuote").innerText = dailyQuotes[quoteIndex];
+
+// ---- Rotating Typing Quotes ----
+const rotatingQuotes = [
+    "Activate your beast mode!",
+    "Ultra Instinct Awakened!",
+    "No weakness, only strength.",
+    "Destroy excuses, build power.",
+    "Grind like a warrior king."
+];
+let index = 0;
+let charIndex = 0;
+
+function typeEffect() {
+    if (charIndex < rotatingQuotes[index].length) {
+        document.getElementById("typing").innerHTML += rotatingQuotes[index].charAt(charIndex);
+        charIndex++;
+        setTimeout(typeEffect, 80);
+    } else {
+        setTimeout(() => {
+            document.getElementById("typing").innerHTML = "";
+            charIndex = 0;
+            index = (index + 1) % rotatingQuotes.length;
+            typeEffect();
+        }, 2500);
+    }
+}
+typeEffect();
+
+// ---- Sound Effect ----
+function playSound() {
+    document.getElementById("powerSound").play();
+}
+
+// ---- Particles Background ----
+const script = document.createElement("script");
+script.src = "https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js";
+document.head.appendChild(script);
+script.onload = () => {
+    particlesJS("particles-js", {
+        "particles": {
+            "number": { "value": 80 },
+            "color": { "value": "#ff00ff" },
+            "shape": { "type": "circle" },
+            "opacity": { "value": 0.5 },
+            "size": { "value": 3 },
+            "move": { "speed": 2 }
+        }
+    });
+};
+</script>
+</body>
+</html>

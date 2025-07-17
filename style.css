@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: #000;
+    color: white;
+    text-align: center;
+}
+
+nav {
+    background: #111;
+    padding: 15px;
+    box-shadow: 0 0 15px #00fff7;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.2rem;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #00fff7;
+}
+
+h1 {
+    color: #00fff7;
+    text-shadow: 0 0 15px #00fff7;
+}

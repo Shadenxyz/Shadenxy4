@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShadenX 7-Day Plan</title>
+<link rel="stylesheet" href="style.css">
+<style>
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        padding: 20px;
+    }
+    .card {
+        width: 280px;
+        background: #111;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 0 15px #00fff7;
+        transition: 0.3s;
+    }
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 30px #ff00ff;
+    }
+    button {
+        background: #00fff7;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    button:hover {
+        background: #ff00ff;
+        color: white;
+        box-shadow: 0 0 20px #ff00ff;
+    }
+</style>
+</head>
+<body>
+<nav>
+    <a href="index.html">Home</a>
+    <a href="plan.html">7-Day Plan</a>
+    <a href="motivation.html">Motivation</a>
+</nav>
+<h1>7-Day ShadenX Warrior Plan</h1>
+<div class="container">
+    <div class="card">
+        <h2>Day 1</h2>
+        <p>Breakfast: 2 Idlis + 1Egg
+        <p>lunch:dal rice or curd rice </p>
+ <p>dinner:any curry(veg) 3-4 pieces(if non-veg)</p>
+<br>Workout: 100 Jumping Jacks</p>
+        <button onclick="alert('Day 1 Activated!')">Activate</button>
+    </div>
+    <div class="card">
+        <h2>Day 2</h2>
+        <p>Breakfast: 3 Idlis + 1 Egg<br>Workout: 120 Jumping Jacks</p>
+        <button onclick="alert('Day 2 Activated!')">Activate</button>
+    </div>
+    <!-- Repeat for Day 3 to Day 7 -->
+</div>
+</body>
+</html>
